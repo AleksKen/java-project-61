@@ -14,6 +14,11 @@ public class Engine {
     private static final int ROUNDS = 3;
     private static final int NUMBER_OF_EXIT = 0;
     private static final int NUMBER_OF_GREETING = 1;
+    private static final int NUMBER_OF_EVEN = 2;
+    private static final int NUMBER_OF_CALC = 3;
+    private static final int NUMBER_OF_GCD = 4;
+    private static final int NUMBER_OF_PROGRESSION = 5;
+    private static final int NUMBER_OF_PRIME = 6;
     private static int countCorrectAns;
     private static String namePlayer;
 
@@ -56,22 +61,22 @@ public class Engine {
 
     private static void printCurRules(int numberGame) {
         switch (numberGame) {
-            case 2 -> Even.printRules();
-            case 3 -> Calc.printRules();
-            case 4 -> GCD.printRules();
-            case 5 -> Progression.printRules();
-            case 6 -> Prime.printRules();
+            case NUMBER_OF_EVEN -> Even.printRules();
+            case NUMBER_OF_CALC -> Calc.printRules();
+            case NUMBER_OF_GCD -> GCD.printRules();
+            case NUMBER_OF_PROGRESSION -> Progression.printRules();
+            case NUMBER_OF_PRIME -> Prime.printRules();
             default -> throw new IllegalArgumentException("Invalid game number: " + numberGame);
         }
     }
 
     private static Pair<String, String> getQuestAndAns(int numberGame) {
         return switch (numberGame) {
-            case 2 -> Even.generaQues();
-            case 3 -> Calc.generaQues();
-            case 4 -> GCD.generaQues();
-            case 5 -> Progression.generaQues();
-            case 6 -> Prime.generaQues();
+            case NUMBER_OF_EVEN -> Even.generaQues();
+            case NUMBER_OF_CALC -> Calc.generaQues();
+            case NUMBER_OF_GCD -> GCD.generaQues();
+            case NUMBER_OF_PROGRESSION -> Progression.generaQues();
+            case NUMBER_OF_PRIME -> Prime.generaQues();
             default -> throw new IllegalArgumentException("Invalid game number: " + numberGame);
         };
     }
