@@ -42,6 +42,7 @@ public class Engine {
                         + "'" + questionAndAns.getValue1() + "'" + ".");
                 countCorrectAns = 0;
                 System.out.println("Let's try again, " + namePlayer + "!");
+                return;
             }
         }
         System.out.println("Congratulations, " + namePlayer + "!");
