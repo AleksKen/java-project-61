@@ -8,7 +8,7 @@ public class Even {
     private static final int RANDOM_LIMIT = 100;
     private static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static Pair<String, String> generQues() {
+    public static Pair<String, String> generaQues() {
         Random random = new Random();
         int randomNum = random.nextInt(RANDOM_LIMIT);
         if (randomNum % 2 == 0) {

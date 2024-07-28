@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 import org.javatuples.Pair;
 
 import java.util.Scanner;
@@ -52,14 +53,16 @@ public class Engine {
         switch (numberGame) {
             case 2 -> Even.printRules();
             case 3 -> Calc.printRules();
+            case 4 -> GCD.printRules();
             default -> System.out.println();
         }
     }
 
     private static Pair<String, String> getQuestAndAns(int numberGame) {
         return switch (numberGame) {
-            case 2 -> Even.generQues();
-            case 3 -> Calc.generQues();
+            case 2 -> Even.generaQues();
+            case 3 -> Calc.generaQues();
+            case 4 -> GCD.generaQues();
             default -> new Pair<>("", "");
         };
     }

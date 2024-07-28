@@ -14,6 +14,8 @@ public class App {
                 2 - Even\
 
                 3 - Calc\
+                               \s
+                4 - GCD\
 
                 0 - Exit\
 

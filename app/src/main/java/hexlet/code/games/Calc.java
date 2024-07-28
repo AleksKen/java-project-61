@@ -9,7 +9,7 @@ public class Calc {
     private static final int NUMBER_OPERATORS = 3;
     private static final String RULES = "What is the result of the expression?";
 
-    public static Pair<String, String> generQues() {
+    public static Pair<String, String> generaQues() {
         Random random = new Random();
         String[] operators = {" - ", " + ", " * "};
         int randomOperand1 = random.nextInt(RANDOM_LIMIT);
