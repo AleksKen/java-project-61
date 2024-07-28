@@ -20,18 +20,7 @@ public class Engine {
         chooseRules(numberGame);
 
         while (countCorrectAns != ROUNDS) {
-            Pair<String, String> questionAndAns;
-            switch (numberGame) {
-                case 2 -> {
-                    questionAndAns = Even.generQues();
-                }
-                case 3 -> {
-                    questionAndAns = Calc.generQues();
-                }
-                default -> {
-                    return;
-                }
-            }
+            Pair<String, String> questionAndAns = getQuestAndAns(numberGame);
             System.out.println("Question: " + questionAndAns.getValue0());
             System.out.print("Your answer: ");
             String ans = sc.next();
@@ -60,5 +49,13 @@ public class Engine {
             case 3 -> Calc.printRules();
             default -> System.out.println();
         }
+    }
+
+    private static Pair<String, String> getQuestAndAns(int numberGame) {
+        return switch (numberGame) {
+            case 2 -> Even.generQues();
+            case 3 -> Calc.generQues();
+            default -> new Pair<>("", "");
+        };
     }
 }
