@@ -14,10 +14,10 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.3"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation("org.javatuples:javatuples:1.2")
 }
 
 application {
-    // Входная точка
     mainClass.set("hexlet.code.App")
 }
 
