@@ -3,7 +3,10 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Game;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
+
 import org.javatuples.Pair;
 
 import java.util.Scanner;
@@ -19,15 +22,17 @@ public class Engine {
         if (numberGame == NUMBER_OF_EXIT) {
             return;
         }
+
+        Game currentGame = getGame(numberGame);
         sayHello(sc);
 
         if (numberGame == NUMBER_OF_GREETING) {
             return;
         }
 
-        printCurRules(numberGame);
+        currentGame.printRules();
         while (countCorrectAns != ROUNDS) {
-            Pair<String, String> questionAndAns = getQuestAndAns(numberGame);
+            Pair<String, String> questionAndAns = currentGame.generaQues();
             System.out.println("Question: " + questionAndAns.getValue0());
             System.out.print("Your answer: ");
             String ans = sc.next();
@@ -50,23 +55,14 @@ public class Engine {
         System.out.println("Hello, " + namePlayer + "!");
     }
 
-    private static void printCurRules(int numberGame) {
-        switch (numberGame) {
-            case 2 -> Even.printRules();
-            case 3 -> Calc.printRules();
-            case 4 -> GCD.printRules();
-            case 5 -> Progression.printRules();
-            default -> System.out.println();
-        }
-    }
-
-    private static Pair<String, String> getQuestAndAns(int numberGame) {
+    private static Game getGame(int numberGame) {
         return switch (numberGame) {
-            case 2 -> Even.generaQues();
-            case 3 -> Calc.generaQues();
-            case 4 -> GCD.generaQues();
-            case 5 -> Progression.generaQues();
-            default -> new Pair<>("", "");
+            case 2 -> new Even();
+            case 3 -> new Calc();
+            case 4 -> new GCD();
+            case 5 -> new Progression();
+            case 6 -> new Prime();
+            default -> throw new IllegalArgumentException("Invalid game number: " + numberGame);
         };
     }
 }

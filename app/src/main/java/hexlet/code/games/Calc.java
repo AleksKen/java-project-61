@@ -4,12 +4,12 @@ import org.javatuples.Pair;
 
 import java.util.Random;
 
-public class Calc {
+public class Calc implements Game {
     private static final int RANDOM_LIMIT = 100;
     private static final int NUMBER_OPERATORS = 3;
     private static final String RULES = "What is the result of the expression?";
 
-    public static Pair<String, String> generaQues() {
+    public Pair<String, String> generaQues() {
         Random random = new Random();
         String[] operators = {" - ", " + ", " * "};
         int randomOperand1 = random.nextInt(RANDOM_LIMIT);
@@ -28,7 +28,7 @@ public class Calc {
         };
     }
 
-    public static void printRules() {
+    public void printRules() {
         System.out.println(RULES);
     }
 }

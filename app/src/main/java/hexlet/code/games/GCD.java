@@ -4,11 +4,11 @@ import org.javatuples.Pair;
 
 import java.util.Random;
 
-public class GCD {
+public class GCD implements Game {
     private static final int RANDOM_LIMIT = 100;
     private static final String RULES = "Find the greatest common divisor of given numbers.";
 
-    public static Pair<String, String> generaQues() {
+    public Pair<String, String> generaQues() {
         Random random = new Random();
         int randomOperand1 = random.nextInt(RANDOM_LIMIT);
         int randomOperand2 = random.nextInt(RANDOM_LIMIT);
@@ -23,7 +23,7 @@ public class GCD {
         return gcdEuclid(num2, num1 % num2);
     }
 
-    public static void printRules() {
+    public void printRules() {
         System.out.println(RULES);
     }
 }
