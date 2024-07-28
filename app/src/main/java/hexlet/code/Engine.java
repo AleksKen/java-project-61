@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Engine {
     private static final int ROUNDS = 3;
     private static final int NUMBER_OF_EXIT = 0;
+    private static final int NUMBER_OF_GREETING = 1;
     private static int countCorrectAns;
     private static String namePlayer;
 
@@ -17,8 +18,12 @@ public class Engine {
             return;
         }
         sayHello(sc);
-        chooseRules(numberGame);
 
+        if (numberGame == NUMBER_OF_GREETING) {
+            return;
+        }
+
+        printCurRules(numberGame);
         while (countCorrectAns != ROUNDS) {
             Pair<String, String> questionAndAns = getQuestAndAns(numberGame);
             System.out.println("Question: " + questionAndAns.getValue0());
@@ -43,7 +48,7 @@ public class Engine {
         System.out.println("Hello, " + namePlayer + "!");
     }
 
-    private static void chooseRules(int numberGame) {
+    private static void printCurRules(int numberGame) {
         switch (numberGame) {
             case 2 -> Even.printRules();
             case 3 -> Calc.printRules();
