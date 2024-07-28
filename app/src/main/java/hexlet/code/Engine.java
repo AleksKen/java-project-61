@@ -3,7 +3,6 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
-import hexlet.code.games.Game;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
@@ -23,16 +22,15 @@ public class Engine {
             return;
         }
 
-        Game currentGame = getGame(numberGame);
         sayHello(sc);
 
         if (numberGame == NUMBER_OF_GREETING) {
             return;
         }
 
-        currentGame.printRules();
+        printCurRules(numberGame);
         while (countCorrectAns != ROUNDS) {
-            Pair<String, String> questionAndAns = currentGame.generaQues();
+            Pair<String, String> questionAndAns = getQuestAndAns(numberGame);
             System.out.println("Question: " + questionAndAns.getValue0());
             System.out.print("Your answer: ");
             String ans = sc.next();
@@ -55,13 +53,24 @@ public class Engine {
         System.out.println("Hello, " + namePlayer + "!");
     }
 
-    private static Game getGame(int numberGame) {
+    private static void printCurRules(int numberGame) {
+        switch (numberGame) {
+            case 2 -> Even.printRules();
+            case 3 -> Calc.printRules();
+            case 4 -> GCD.printRules();
+            case 5 -> Progression.printRules();
+            case 6 -> Prime.printRules();
+            default -> throw new IllegalArgumentException("Invalid game number: " + numberGame);
+        }
+    }
+
+    private static Pair<String, String> getQuestAndAns(int numberGame) {
         return switch (numberGame) {
-            case 2 -> new Even();
-            case 3 -> new Calc();
-            case 4 -> new GCD();
-            case 5 -> new Progression();
-            case 6 -> new Prime();
+            case 2 -> Even.generaQues();
+            case 3 -> Calc.generaQues();
+            case 4 -> GCD.generaQues();
+            case 5 -> Progression.generaQues();
+            case 6 -> Prime.generaQues();
             default -> throw new IllegalArgumentException("Invalid game number: " + numberGame);
         };
     }

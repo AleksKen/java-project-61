@@ -4,17 +4,17 @@ import org.javatuples.Pair;
 
 import java.util.Random;
 
-public class Even implements Game {
+public class Even {
     private static final int RANDOM_LIMIT = 100;
     private static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public Pair<String, String> generaQues() {
+    public static Pair<String, String> generaQues() {
         Random random = new Random();
         int randomNum = random.nextInt(RANDOM_LIMIT);
         return new Pair<>(Integer.toString(randomNum), randomNum % 2 == 0 ? "yes" : "no");
     }
 
-    public void printRules() {
+    public static void printRules() {
         System.out.println(RULES);
     }
 }

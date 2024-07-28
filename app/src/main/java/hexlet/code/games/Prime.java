@@ -4,11 +4,11 @@ import org.javatuples.Pair;
 
 import java.util.Random;
 
-public class Prime implements Game {
+public class Prime {
     private static final int RANDOM_LIMIT = 100;
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public Pair<String, String> generaQues() {
+    public static Pair<String, String> generaQues() {
         Random random = new Random();
         int randomNum = random.nextInt(RANDOM_LIMIT);
         return new Pair<>(Integer.toString(randomNum), isPrime(randomNum) ? "yes" : "no");
@@ -23,7 +23,7 @@ public class Prime implements Game {
         return true;
     }
 
-    public void printRules() {
+    public static void printRules() {
         System.out.println(RULES);
     }
 }

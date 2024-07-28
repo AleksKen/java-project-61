@@ -4,14 +4,14 @@ import org.javatuples.Pair;
 
 import java.util.Random;
 
-public class Progression implements Game {
+public class Progression {
     private static final int LIMIT_DIFFERENCE = 30;
     private static final int LIMIT_FIRST = 25;
     private static final int MIN_LENG = 5;
     private static final int MAX_LENG = 10;
     private static final String RULES = "What number is missing in the progression?";
 
-    public Pair<String, String> generaQues() {
+    public static Pair<String, String> generaQues() {
         Random random = new Random();
         int difference = random.nextInt(LIMIT_DIFFERENCE);
         int firstElement = random.nextInt(LIMIT_FIRST);
@@ -32,7 +32,7 @@ public class Progression implements Game {
         return new Pair<>(question.toString(), Integer.toString(firstElement + pass * difference));
     }
 
-    public void printRules() {
+    public static void printRules() {
         System.out.println(RULES);
     }
 }
