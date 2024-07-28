@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 import org.javatuples.Pair;
 
 import java.util.Scanner;
@@ -54,6 +55,7 @@ public class Engine {
             case 2 -> Even.printRules();
             case 3 -> Calc.printRules();
             case 4 -> GCD.printRules();
+            case 5 -> Progression.printRules();
             default -> System.out.println();
         }
     }
@@ -63,6 +65,7 @@ public class Engine {
             case 2 -> Even.generaQues();
             case 3 -> Calc.generaQues();
             case 4 -> GCD.generaQues();
+            case 5 -> Progression.generaQues();
             default -> new Pair<>("", "");
         };
     }
