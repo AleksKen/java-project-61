@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import org.javatuples.Pair;
 
 import java.util.Random;
@@ -24,11 +25,15 @@ public class Calc {
             case " - " -> operand1 - operand2;
             case " + " -> operand1 + operand2;
             case " * " -> operand1 * operand2;
-            default -> 0;
+            default -> throw new IllegalArgumentException("Invalid operator: " + operator);
         };
     }
 
-    public static void printRules() {
-        System.out.println(RULES);
+    public static void startCalc() {
+        Pair<String, String>[] questionsAndAns = new Pair[Engine.ROUNDS];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            questionsAndAns[i] = generaQues();
+        }
+        Engine.start(RULES, questionsAndAns);
     }
 }

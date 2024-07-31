@@ -1,5 +1,11 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
+
 import java.util.Scanner;
 
 
@@ -30,7 +36,20 @@ public class App {
         } else {
             throw new IllegalArgumentException("Only digits!");
         }
-        Engine.start(sc, numberGame);
+        selectGame(numberGame, sc);
         sc.close();
+    }
+
+    private static void selectGame(int numberGame, Scanner sc) {
+        switch (numberGame) {
+            case 1 -> Engine.sayHello(sc);
+            case 2 -> Even.startEven();
+            case 3 -> Calc.startCalc();
+            case 4 -> GCD.startGCD();
+            case 5 -> Progression.startProgression();
+            case 6 -> Prime.startPrime();
+            case 0 -> { }
+            default -> throw new IllegalArgumentException("Invalid game number: " + numberGame);
+        }
     }
 }

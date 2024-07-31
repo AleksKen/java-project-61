@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import org.javatuples.Pair;
 
 import java.util.Random;
@@ -17,22 +18,34 @@ public class Progression {
         int firstElement = random.nextInt(LIMIT_FIRST);
         int lengProgress = random.nextInt(MAX_LENG - MIN_LENG + 1) + MIN_LENG;
         int pass = random.nextInt(lengProgress);
-
-        StringBuilder question = new StringBuilder();
-        for (int i = 0; i < lengProgress; i++) {
-            if (i == pass) {
-                question.append("..");
-            } else {
-                question.append(firstElement + i * difference);
-            }
-            if (i < lengProgress - 1) {
-                question.append(" ");
-            }
-        }
-        return new Pair<>(question.toString(), Integer.toString(firstElement + pass * difference));
+        return new Pair<>(generateProgression(firstElement, difference, lengProgress, pass),
+                getPassElement(firstElement, difference, pass));
     }
 
-    public static void printRules() {
-        System.out.println(RULES);
+    private static String generateProgression(int firstElement, int difference, int length, int pass) {
+        StringBuilder progression = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            if (i == pass) {
+                progression.append("..");
+            } else {
+                progression.append(firstElement + i * difference);
+            }
+            if (i < length - 1) {
+                progression.append(" ");
+            }
+        }
+        return progression.toString();
+    }
+
+    private static String getPassElement(int firstElement, int difference, int pass) {
+        return Integer.toString(firstElement + pass * difference);
+    }
+
+    public static void startProgression() {
+        Pair<String, String>[] questionsAndAns = new Pair[Engine.ROUNDS];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            questionsAndAns[i] = generaQues();
+        }
+        Engine.start(RULES, questionsAndAns);
     }
 }

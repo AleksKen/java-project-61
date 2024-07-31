@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import org.javatuples.Pair;
 
 import java.util.Random;
@@ -23,7 +24,11 @@ public class GCD {
         return gcdEuclid(num2, num1 % num2);
     }
 
-    public static void printRules() {
-        System.out.println(RULES);
+    public static void startGCD() {
+        Pair<String, String>[] questionsAndAns = new Pair[Engine.ROUNDS];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            questionsAndAns[i] = generaQues();
+        }
+        Engine.start(RULES, questionsAndAns);
     }
 }
