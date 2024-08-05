@@ -10,7 +10,7 @@ public class Calc {
     private static final int NUMBER_OPERATORS = 3;
     private static final String RULES = "What is the result of the expression?";
 
-    public static Pair<String, String> generaQues() {
+    public static Pair<String, String> getPairQuestAndAns() {
         Random random = new Random();
         String[] operators = {" - ", " + ", " * "};
         int randomOperand1 = random.nextInt(RANDOM_LIMIT);
@@ -32,7 +32,7 @@ public class Calc {
     public static void startCalc() {
         Pair<String, String>[] questionsAndAns = new Pair[Engine.ROUNDS];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            questionsAndAns[i] = generaQues();
+            questionsAndAns[i] = getPairQuestAndAns();
         }
         Engine.start(RULES, questionsAndAns);
     }

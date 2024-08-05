@@ -9,7 +9,7 @@ public class Even {
     private static final int RANDOM_LIMIT = 100;
     private static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static Pair<String, String> generaQues() {
+    public static Pair<String, String> getPairQuestAndAns() {
         Random random = new Random();
         int randomNum = random.nextInt(RANDOM_LIMIT);
         return new Pair<>(Integer.toString(randomNum), isEven(randomNum) ? "yes" : "no");
@@ -22,7 +22,7 @@ public class Even {
     public static void startEven() {
         Pair<String, String>[] questionsAndAns = new Pair[Engine.ROUNDS];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            questionsAndAns[i] = generaQues();
+            questionsAndAns[i] = getPairQuestAndAns();
         }
         Engine.start(RULES, questionsAndAns);
     }

@@ -9,7 +9,7 @@ public class GCD {
     private static final int RANDOM_LIMIT = 100;
     private static final String RULES = "Find the greatest common divisor of given numbers.";
 
-    public static Pair<String, String> generaQues() {
+    public static Pair<String, String> getPairQuestAndAns() {
         Random random = new Random();
         int randomOperand1 = random.nextInt(RANDOM_LIMIT);
         int randomOperand2 = random.nextInt(RANDOM_LIMIT);
@@ -27,7 +27,7 @@ public class GCD {
     public static void startGCD() {
         Pair<String, String>[] questionsAndAns = new Pair[Engine.ROUNDS];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            questionsAndAns[i] = generaQues();
+            questionsAndAns[i] = getPairQuestAndAns();
         }
         Engine.start(RULES, questionsAndAns);
     }

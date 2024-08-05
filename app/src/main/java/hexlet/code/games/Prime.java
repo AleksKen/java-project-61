@@ -9,7 +9,7 @@ public class Prime {
     private static final int RANDOM_LIMIT = 100;
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public static Pair<String, String> generaQues() {
+    public static Pair<String, String> getPairQuestAndAns() {
         Random random = new Random();
         int randomNum = random.nextInt(RANDOM_LIMIT);
         return new Pair<>(Integer.toString(randomNum), isPrime(randomNum) ? "yes" : "no");
@@ -27,7 +27,7 @@ public class Prime {
     public static void startPrime() {
         Pair<String, String>[] questionsAndAns = new Pair[Engine.ROUNDS];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            questionsAndAns[i] = generaQues();
+            questionsAndAns[i] = getPairQuestAndAns();
         }
         Engine.start(RULES, questionsAndAns);
     }
